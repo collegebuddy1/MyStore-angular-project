@@ -1,0 +1,26 @@
+<form (ngSubmit)="checkOut()" class="check-out">
+    <div class="header-area">
+        <div class="sub">
+            Product
+        </div>
+        <div class="sub">
+            Amount
+        </div>
+        <div class="sub">
+            Price
+        </div>
+    </div>
+    <div class="main" *ngFor="let product of cartProducts">
+        <div class="sub">
+            <img src={{product.url}} width="100" alt={{product.name}} />
+        </div>
+        <div class="sub">
+            {{product.amount}}
+        </div>
+        <div class="sub">
+            ${{(product.amount * product.price).toFixed(2)}}
+        </div>
+    </div>
+    <h2>Total Price: ${{totalPrice}}</h2>
+    <button type="submit" mat-raised-button color="accent" >Check Out</button>
+</form>
